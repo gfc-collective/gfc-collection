@@ -1,4 +1,4 @@
-package com.gilt.gfc.collection
+package org.gfccollective.collection
 
 /**
  * Simple circular buffer class, which supports adding a new item,

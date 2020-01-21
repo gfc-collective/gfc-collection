@@ -1,4 +1,4 @@
-package com.gilt.gfc.collection
+package org.gfccollective.collection
 
 
 import scala.math.Ordering

@@ -1,4 +1,4 @@
-package com.gilt.gfc.collection
+package org.gfccollective.collection
 
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers

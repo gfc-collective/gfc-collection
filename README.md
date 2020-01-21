@@ -1,4 +1,4 @@
-# gfc-collection [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.gilt/gfc-collection_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.gilt/gfc-collection_2.12) [![Build Status](https://travis-ci.org/gilt/gfc-collection.svg?branch=master)](https://travis-ci.org/gilt/gfc-collection) [![Coverage Status](https://coveralls.io/repos/gilt/gfc-collection/badge.svg?branch=master&service=github)](https://coveralls.io/github/gilt/gfc-collection?branch=master) [![Join the chat at https://gitter.im/gilt/gfc](https://badges.gitter.im/gilt/gfc.svg)](https://gitter.im/gilt/gfc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# gfc-collection [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-collection_2.12/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/org.gfccollective/gfc-collection_2.12) [![Build Status](https://travis-ci.org/gilt/gfc-collection.svg?branch=master)](https://travis-ci.org/gilt/gfc-collection) [![Coverage Status](https://coveralls.io/repos/gilt/gfc-collection/badge.svg?branch=master&service=github)](https://coveralls.io/github/gilt/gfc-collection?branch=master) [![Join the chat at https://gitter.im/gilt/gfc](https://badges.gitter.im/gilt/gfc.svg)](https://gitter.im/gilt/gfc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A library that contains scala collection utility classes. Part of the [Gilt Foundation Classes](https://github.com/gilt?q=gfc).
 
@@ -9,15 +9,15 @@ The latest version is 0.0.5, which is cross-built against Scala 2.10.x, 2.11.x a
 If you're using SBT, add the following line to your build file:
 
 ```scala
-libraryDependencies += "com.gilt" %% "gfc-collection" % "0.0.5"
+libraryDependencies += "org.gfccollective" %% "gfc-collection" % "0.0.5"
 ```
 
-For Maven and other build tools, you can visit [search.maven.org](http://search.maven.org/#search%7Cga%7C1%7Ccom.gilt%20gfc).
+For Maven and other build tools, you can visit [search.maven.org](http://search.maven.org/#search%7Cga%7C1%7Corg.gfccollective%20gfc).
 (This search will also list other available libraries from the gilt fundation classes.)
 
 ## Contents and Example Usage
 
-### com.gilt.gfc.collection.CircularBuffer
+### org.gfccollective.collection.CircularBuffer
 
 Simple non-thread-safe circular buffer implementation that supports adding a new item,
 finding the oldest item, the newest item, or iterating from oldest to newest.
@@ -39,7 +39,7 @@ finding the oldest item, the newest item, or iterating from oldest to newest.
     assert(buffer.newest == 5)
     assert(buffer.size == 5)
 
-### com.gilt.gfc.collection.TopN
+### org.gfccollective.collection.TopN
 
 Utility to select top N items from a collection.
 
