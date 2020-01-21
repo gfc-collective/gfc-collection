@@ -4,6 +4,7 @@ import java.lang.System.arraycopy
 import java.util.{Arrays => JArrays}
 
 import scala.collection.mutable.ArraySeq
+import scala.reflect.ClassTag
 
 /**
  * Utility to select top N items from a collection.
@@ -12,7 +13,7 @@ import scala.collection.mutable.ArraySeq
  * The point of this class is to avoid sorting entire collection of M items while producing same results.
  * Implementation assumes that N is relatively small.
  * {{{
- * scala> import org.gfccollective.collection.TopN
+ * scala> import com.gilt.gfc.collection.TopN
  * scala> import scala.math.Ordering.Int
  * scala> val elements = scala.util.Random.shuffle((1 to 10))
  * scala> val topN = TopN[Int](5, elements)
@@ -21,21 +22,18 @@ import scala.collection.mutable.ArraySeq
  */
 object TopN {
   /** Gets the top N items from a given collection. */
-  def apply[T](n: Int,
-               items: TraversableOnce[T])
-              (implicit ord: Ordering[T]): Seq[T] = {
+  def apply[T: ClassTag : Ordering](n: Int,
+               items: TraversableOnce[T]): Seq[T] = {
     require(items != null, "items must not be null")
-    val topN = TopN(n)(ord)
+    val topN = TopN(n)
     topN.addAll(items)
     topN.toSeq
   }
 
   /** Creates TopN object so that items can be added one at a time. */
-  def apply[T](n: Int)
-              (implicit ord: Ordering[T]): TopN[T] = {
+  def apply[T: ClassTag : Ordering](n: Int): TopN[T] = {
     require(n > 0, "n must be > 0")
-    require(ord != null, "ord must not be null")
-    new TopN(n, new ArraySeq[T](n), ord)
+    new TopN(n, new ArraySeq[T](n))
   }
 
 }
@@ -55,8 +53,8 @@ object TopN {
 //  It prefers element collections where results are closer to the beginning.
 //
 final class TopN[T] private(n: Int,
-                            topItems: ArraySeq[T], // max .. min
-                            ord: Ordering[T]) {
+                            topItems: ArraySeq[T]) // max .. min
+                           (implicit ord: Ordering[T]) {
   private val arrayComparator = ord.asInstanceOf[Ordering[Any]]
   private val endIdx = n-1
   private var appendIdx = 0
