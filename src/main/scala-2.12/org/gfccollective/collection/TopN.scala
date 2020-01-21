@@ -13,7 +13,7 @@ import scala.reflect.ClassTag
  * The point of this class is to avoid sorting entire collection of M items while producing same results.
  * Implementation assumes that N is relatively small.
  * {{{
- * scala> import com.gilt.gfc.collection.TopN
+ * scala> import org.gfccollective.collection.TopN
  * scala> import scala.math.Ordering.Int
  * scala> val elements = scala.util.Random.shuffle((1 to 10))
  * scala> val topN = TopN[Int](5, elements)
