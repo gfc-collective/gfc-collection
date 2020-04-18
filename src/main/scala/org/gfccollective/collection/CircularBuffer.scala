@@ -6,9 +6,9 @@ package org.gfccollective.collection
  * to newest.  Not thread safe.
  */
 class CircularBuffer[@specialized T: Manifest](capacity: Int) extends Iterable[T] {
-  var nextWrite = 0
-  var full = false
-  val buffer = new Array[T](capacity)
+  private var nextWrite = 0
+  private var full = false
+  private val buffer = new Array[T](capacity)
 
   def add(item: T) {
     if (nextWrite == capacity) {
