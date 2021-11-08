@@ -10,7 +10,7 @@ class CircularBuffer[@specialized T: Manifest](capacity: Int) extends Iterable[T
   private var full = false
   private val buffer = new Array[T](capacity)
 
-  def add(item: T) {
+  def add(item: T): Unit = {
     if (nextWrite == capacity) {
       nextWrite = 0
       full = true
