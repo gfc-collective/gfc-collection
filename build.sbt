@@ -21,7 +21,7 @@ scalacOptions ++= {
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.2.14" % Test,
+  "org.scalatest" %% "scalatest" % "3.2.20" % Test,
   "org.scalatestplus" %% "scalacheck-1-15" % "3.2.11.0" % Test,
   "org.scalacheck" %% "scalacheck" % "1.17.0" % Test
 )
